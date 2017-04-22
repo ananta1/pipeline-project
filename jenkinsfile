@@ -1,0 +1,24 @@
+pipeline {
+    agent {
+        label 'master'
+    }
+    stages {
+        stage ('PRINT'){
+          steps {
+             sh 'echo $JOB_NAME'
+          }
+        }
+
+	stage ('WRITE'){
+	  steps {
+	     sh 'echo $BUILD_NAME'
+	  }
+	}
+
+	stage ('READ') {
+	  steps {
+	     sh 'cat build_number'
+	  }
+	}
+   } 
+}
